@@ -22,11 +22,16 @@
     </li>
 
     <li class="w3-hide-small w3-dropdown-hover">
-      <li class="w3-padding-large w3-hover-white" title="Categories">
+      <%= link_to categories_path, class: "w3-padding-large w3-hover-white" do %>
         <i class="glyphicon glyphicon-th-list"></i>
-      </a>
+        <span><%= t "category.all_category" %></span>
+      <% end %>
+      <div class="w3-dropdown-content w3-white w3-card-4 nht-categories">
+        <% @categories.each do |category| %>
+          <%= link_to category.name, category %>
+        <% end %>
+      </div>
     </li>
-  
     <li class="w3-hide-small w3-right w3-dropdown-hover">
       <%= link_to "", class: "w3-padding-large w3-hover-white"%>
         <%= image_tag "https://goo.gl/FmJsq6", class: "w3-circle td-img" %>

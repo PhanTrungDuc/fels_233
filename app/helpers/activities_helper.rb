@@ -4,7 +4,7 @@ module ActivitiesHelper
     if activity.user == current_user
       t "activity_user_name_you"
     else
-      activity.user.name
+      activity.user.name ? "" : activity.user.name
     end
   end
 
@@ -25,7 +25,7 @@ module ActivitiesHelper
       link_to @lesson.category.name, @lesson.category
     else
       user = User.find_by id: activity.target_id
-      link_to user.name, user
+      link_to user.name, user if user
     end
   end
 
